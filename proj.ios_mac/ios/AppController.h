@@ -1,4 +1,6 @@
 /****************************************************************************
+ Copyright (c) 2010-2013 cocos2d-x.org
+ Copyright (c) 2013-2016 Chukong Technologies Inc.
  Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
  
  http://www.cocos2d-x.org
@@ -22,43 +24,15 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef  _APP_DELEGATE_H_
-#define  _APP_DELEGATE_H_
+#import <UIKit/UIKit.h>
 
-#include "cocos2d.h"
+@class RootViewController;
 
-/**
-@brief    The cocos2d Application.
+@interface AppController : NSObject <UIApplicationDelegate> {
 
-Private inheritance here hides part of interface from Director.
-*/
-class  AppDelegate : private cocos2d::Application
-{
-public:
-    AppDelegate();
-    virtual ~AppDelegate();
+}
 
-    virtual void initGLContextAttrs();
+@property(nonatomic, readonly) RootViewController* viewController;
 
-    /**
-    @brief    Implement Director and Scene init code here.
-    @return true    Initialize success, app continue.
-    @return false   Initialize failed, app terminate.
-    */
-    virtual bool applicationDidFinishLaunching();
-
-    /**
-    @brief  Called when the application moves to the background
-    @param  the pointer of the application
-    */
-    virtual void applicationDidEnterBackground();
-
-    /**
-    @brief  Called when the application reenters the foreground
-    @param  the pointer of the application
-    */
-    virtual void applicationWillEnterForeground();
-};
-
-#endif // _APP_DELEGATE_H_
+@end
 

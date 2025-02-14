@@ -26,21 +26,42 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
+#include "ui/UIScrollView.h"
+
+#include "DropDownList.h"
+
+USING_NS_CC;
+using namespace cocos2d::ui;
 
 class HelloWorld : public cocos2d::Scene
 {
 public:
-	inline HelloWorld() {};
     static cocos2d::Scene* createScene();
 
+    void Log(std::string log);
+
     virtual bool init();
+
     
+    ui::EditBox* createEditBox();
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+    int logCount;
 private:
+	ScrollView* mScrollView;
+
+
+    CCMenu* mDropDownMenu;
+    DropDownList* mDropdown;
+
+	std::string mLog;
+    
+    Label* mText;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

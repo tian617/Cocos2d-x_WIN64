@@ -264,7 +264,7 @@ void MenuItemLabel::selected()
             _originalScale = this->getScale();
         }
         
-        Action *zoomAction = ScaleTo::create(0.1f, _originalScale * 1.2f);
+        Action *zoomAction = ScaleTo::create(0.1f, _originalScale * 1.05f);
         zoomAction->setTag(kZoomActionTag);
         this->runAction(zoomAction);
     }
